@@ -30,8 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
   ui_->comboBox_1->addItem("Image");
   ui_->comboBox_2->addItem("Image");
-  ui_->comboBox_3->addItem("Image");
-  ui_->comboBox_4->addItem("Image");
 
   connect(ui_->quitButton, SIGNAL(pressed()), this, SLOT(TryClose()));
 
@@ -325,20 +323,16 @@ void MainWindow::SetImgBox(QString msg)
 {
   ui_->comboBox_1->addItem(msg);
   ui_->comboBox_2->addItem(msg);
-  ui_->comboBox_3->addItem(msg);
-  ui_->comboBox_4->addItem(msg);
 
 }
 void MainWindow::SetImage()
 {
-  QString box[4];
+  QString box[2];
   box[0] = ui_->comboBox_1->currentText();
   box[1] = ui_->comboBox_2->currentText();
-  box[2] = ui_->comboBox_3->currentText();
-  box[3] = ui_->comboBox_4->currentText();
 
 
-  for(int i = 0 ; i < 4 ; i ++){
+  for(int i = 0 ; i < 2 ; i ++){
     QPixmap image_src;
     bool image_src_flag = false;
 
@@ -425,8 +419,6 @@ void MainWindow::SetImage()
     if(image_src_flag == true){
       if(i == 0) this->ui_->label_13->setPixmap(image_src.scaled(this->ui_->label_13->size(),Qt::KeepAspectRatio));
       if(i == 1) this->ui_->label_14->setPixmap(image_src.scaled(this->ui_->label_14->size(),Qt::KeepAspectRatio));
-      if(i == 2) this->ui_->label_9->setPixmap(image_src.scaled(this->ui_->label_9->size(),Qt::KeepAspectRatio));
-      if(i == 3) this->ui_->label_10->setPixmap(image_src.scaled(this->ui_->label_10->size(),Qt::KeepAspectRatio));
     }
   }
 
